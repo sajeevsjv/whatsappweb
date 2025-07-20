@@ -1,17 +1,42 @@
-const ChatBody = ()=>{
-    return (
-        <div className="container bg-[#161717]   w-full  h-[80vh]  p-4 flex flex-col  text-white">
-            <div className="date-chip rounded-full text-xs text-gray-100 border border-gray-500 m-auto w-fit px-2 py-1">Today</div>
+import ChatFooter from "./ChatFooter";
+import ChatHeader from "./ChatHeader";
 
-            <div className="my-msg bg-[#144D37] p-2 w-fit flex rounded-lg text-white">
-                 <div>hello sajeeeeeeeev </div>
-                <div className="msg-details w-full flex items-end  gap-2 text-[11px] justify-end text-gray-400">
-                <span>855 AM</span>
-                <span>///</span>
-                </div>
-            </div>
-            
+
+const ChatBody = () => {
+    
+  return (
+    <div className="h-screen flex w-full flex-col bg-[#161717] border-l-2 border-gray-900 text-white">
+        <div className="border-b border-gray-800">
+        <ChatHeader />
         </div>
-    );
-}
+      {/* Scrollable chat body */}
+      <div className=" overflow-y-scroll scrollbar-thin scrollbar-thumb-[#444] scrollbar-track-[#1e1e1e]  p-10 flex flex-col gap-4">
+        <div className="date-chip rounded-full text-xs text-gray-100 border border-gray-500 mx-auto w-fit px-2 py-1">
+          Today
+        </div>
+
+        {Array(12)
+          .fill("hello sajeeeeeeeev")
+          .map((msg, index) => (
+            <div
+              key={index}
+              className="my-msg bg-[#144D37] p-2 w-fit flex flex-col rounded-lg text-white"
+            >
+              <div>{msg}</div>
+              <div className="msg-details w-full flex items-end gap-2 text-[11px] justify-end text-gray-400">
+                <span>8:55 AM</span>
+                <span>///</span>
+              </div>
+            </div>
+          ))}
+      </div>
+
+      {/* Fixed footer */}
+      <div className="border-t  border-gray-800">
+        <ChatFooter />
+      </div>
+    </div>
+  );
+};
+
 export default ChatBody;

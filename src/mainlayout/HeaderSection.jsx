@@ -5,7 +5,7 @@ const HeaderSection = ()=>{
     return(
         <>
         <div className="header-container w-full flex flex-col gap-3 p-3 bg-[#161717] text-white">
-            <div className="line-one w-full flex items-center text-2xl ">
+            <div className="line-one w-full flex gap-3 items-center text-2xl ">
                 <div className="flex-30 font-semibold"><h1>Whatsapp</h1></div>
                 <div className="flex-2"><PiChatText  /></div>
                 <div className="flex-2"><BsThreeDotsVertical /></div>

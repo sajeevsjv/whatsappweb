@@ -1,11 +1,11 @@
 import FirstSection from "./mainlayout/FirstSection";
-import MessageSection from "./message-section/MessageSection";
+import ChatBody from "./message-section/ChatBody"
 function App() {
   return (
     <>
     <div className="flex h-screen">
       <FirstSection />
-      <MessageSection />
+      <ChatBody/>
       </div>
     </>
   )
