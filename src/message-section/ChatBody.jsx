@@ -1,8 +1,10 @@
 import ChatFooter from "./ChatFooter";
 import ChatHeader from "./ChatHeader";
+import { useSelector } from "react-redux";
 
 
 const ChatBody = () => {
+  const { messages } = useSelector((state) => state.message);
     
   return (
     <div className="h-screen flex w-full flex-col bg-[#161717] border-l-2 border-gray-900 text-white">
@@ -15,9 +17,8 @@ const ChatBody = () => {
           Today
         </div>
 
-        {Array(12)
-          .fill("hello sajeeeeeeeev")
-          .map((msg, index) => (
+       {
+          messages.map((msg, index) => (
             <div
               key={index}
               className="my-msg bg-[#144D37] p-2 w-fit flex flex-col rounded-lg text-white"

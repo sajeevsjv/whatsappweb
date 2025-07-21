@@ -1,3 +1,19 @@
 *{
   box-sizing: border-box !important;
 }
+
+::-webkit-scrollbar{
+  width: 4px;
+  height: 30px;
+}
+::-webkit-scrollbar-thumb{
+  background: #867c7c;
+  border-radius: 10px;
+  
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}
+::-webkit-scrollbar-track{
+  background: #636363;
+}
