@@ -18,7 +18,7 @@ const ChatFooter = () => {
                 console.log("Message changed:", messages);
          }, [messages]);
 
-     const handleChange = (e)=>{
+     const handleChange = (e)=> {
          setTypingMessage((e.target.value.length > 0) ? true : false);
 
             setNewMessage(e.target.value);
@@ -28,11 +28,14 @@ const ChatFooter = () => {
          
         dispatch({
             type : 'message/addMessage',
-            payload: newMessage
+            payload: {
+                msg : newMessage
+            }
 
         });
 
         setNewMessage("");
+        
     }
 
     return (
@@ -61,7 +64,7 @@ const ChatFooter = () => {
                     )}
                    
                 </div>
-                <input type="text" onKeyDown={(e) => e.key === "Enter" && handleSend()} onChange={handleChange} placeholder="Type a message" className="w-full pl-20 p-3  rounded-full bg-[#2a2a2a] text-white" />
+                <input type="text" value={newMessage} onKeyDown={(e) => e.key === "Enter" && handleSend()} onChange={handleChange} placeholder="Type a message" className="w-full pl-20 p-3  rounded-full bg-[#2a2a2a] text-white" />
 
             </div>
             </div>

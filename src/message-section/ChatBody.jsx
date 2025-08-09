@@ -23,10 +23,10 @@ const ChatBody = () => {
               key={index}
               className="my-msg bg-[#144D37] p-2 w-fit flex flex-col rounded-lg text-white"
             >
-              <div>{msg}</div>
+              <div>{msg.msg}</div>
               <div className="msg-details w-full flex items-end gap-2 text-[11px] justify-end text-gray-400">
-                <span>8:55 AM</span>
-                <span>///</span>
+                <span>{msg.timestamp()}</span>
+                <span>{msg.sender}</span>
               </div>
             </div>
           ))}

@@ -1,18 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const messageSlice = createSlice({
-    name :"message",
-    initialState:{
-        messages: [],
+    name: "message",
+    initialState: {
+        messages: [
+
+        ],
         status: "idle",
         error: null
     },
     reducers: {
         addMessage: (state, action) => {
-            state.messages.push(action.payload);
-        }   
+            const newMsg = {
+                msg: action.payload.msg || "",
+                sender: action.payload.sender || "user",
+                timestamp:
+                    () => {
+
+                        const timestamp = Date.now();
+                        const date = new Date(timestamp);
+
+                        // Format as HH:MM AM/PM
+                        const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                        return timeString;
+                    }
+            }
+            state.messages.push(newMsg);
+        }
     },
-    extraReducers: (builder) => {   
+    extraReducers: (builder) => {
         builder
             .addCase('fetchMessages/pending', (state) => {
                 state.status = 'loading';
